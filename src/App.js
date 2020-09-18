@@ -3,15 +3,19 @@ import bridge from '@vkontakte/vk-bridge';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
+import Podcasts from "./panels/Podcasts";
+import NewPodcast from "./panels/NewPodcast";
+import EditPodcast from "./panels/EditPodcast";
+import ViewPodcast from "./panels/ViewPodcast";
+import SharePodcast from "./panels/SharePodcast";
+import SelectMusic from "./panels/SelectMusic";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activePanel: 'home',
+      activePanel: 'podcasts',
       history: []
     };
 
@@ -66,10 +70,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <View activePanel={this.state.activePanel}>
-        <Home id='home' go={this.go} />
-        <Persik id='persik' go={this.go} />
-      </View>
+        <View activePanel={this.state.activePanel}>
+          <Podcasts id='podcasts' go={this.go}/>
+          <NewPodcast id='new-podcast' go={this.go}/>
+          <EditPodcast id='edit-podcast' go={this.go}/>
+          <ViewPodcast id='view-podcast' go={this.go}/>
+          <SharePodcast id='share' go={this.go}/>
+          <SelectMusic id='select-music' go={this.go}/>
+        </View>
     )
   }
 }
